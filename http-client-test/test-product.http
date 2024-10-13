@@ -1,0 +1,182 @@
+### save products
+
+POST http://localhost:8000/add-products/
+Content-Type: application/json
+
+[
+  {
+    "product_id": "item_1",
+    "product_name": "Macbook Pro",
+    "product_category": "Electronics",
+    "product_keywords": ["tech", "work", "portable"],
+    "additional_info": {"brand": "Apple", "price": 1200}
+  },
+  {
+    "product_id": "item_2",
+    "product_name": "Noise-Cancelling Headphones",
+    "product_category": "Electronics",
+    "product_keywords": ["music", "travel", "noise-cancelling"],
+    "additional_info": {"brand": "Sony", "price": 300}
+  },
+  {
+    "product_id": "item_3",
+    "product_name": "Portable Bluetooth Speaker",
+    "product_category": "Electronics",
+    "product_keywords": ["music", "outdoor", "wireless"],
+    "additional_info": {"brand": "JBL", "price": 100}
+  },
+  {
+    "product_id": "item_4",
+    "product_name": "Smartwatch",
+    "product_category": "Electronics",
+    "product_keywords": ["fitness", "health", "notifications"],
+    "additional_info": {"brand": "Samsung", "price": 250}
+  },
+  {
+    "product_id": "item_5",
+    "product_name": "Mirrorless Camera",
+    "product_category": "Electronics",
+    "product_keywords": ["photography", "travel", "high-quality"],
+    "additional_info": {"brand": "Canon", "price": 800}
+  },
+  {
+    "product_id": "item_6",
+    "product_name": "Hiking Backpack",
+    "product_category": "Travel",
+    "product_keywords": ["outdoor", "adventure", "durable"],
+    "additional_info": {"brand": "Osprey", "price": 150}
+  },
+  {
+    "product_id": "item_7",
+    "product_name": "Lightweight Suitcase",
+    "product_category": "Travel",
+    "product_keywords": ["travel", "luggage", "convenient"],
+    "additional_info": {"brand": "Samsonite", "price": 200}
+  },
+  {
+    "product_id": "item_8",
+    "product_name": "Travel Insurance",
+    "product_category": "Travel",
+    "product_keywords": ["safety", "protection", "peace of mind"],
+    "additional_info": {"brand": "World Nomads", "price": 50}
+  },
+  {
+    "product_id": "item_9",
+    "product_name": "Pocket Translator",
+    "product_category": "Travel",
+    "product_keywords": ["language", "communication", "convenient"],
+    "additional_info": {"brand": "Pocketalk", "price": 200}
+  },
+  {
+    "product_id": "item_10",
+    "product_name": "Noise-Cancelling Earplugs",
+    "product_category": "Travel",
+    "product_keywords": ["sleep", "comfort", "travel"],
+    "additional_info": {"brand": "Bose", "price": 30}
+  },
+  {
+    "product_id": "item_11",
+    "product_name": "Scented Candles",
+    "product_category": "Home Decor",
+    "product_keywords": ["relaxation", "fragrance", "ambiance"],
+    "additional_info": {"brand": "Yankee Candle", "price": 20}
+  },
+  {
+    "product_id": "item_12",
+    "product_name": "Throw Blanket",
+    "product_category": "Home Decor",
+    "product_keywords": ["cozy", "comfort", "style"],
+    "additional_info": {"brand": "West Elm", "price": 50}
+  },
+  {
+    "product_id": "item_13",
+    "product_name": "Wall Art",
+    "product_category": "Home Decor",
+    "product_keywords": ["decoration", "art", "style"],
+    "additional_info": {"brand": "Etsy", "price": 100}
+  },
+  {
+    "product_id": "item_14",
+    "product_name": "Decorative Vases",
+    "product_category": "Home Decor",
+    "product_keywords": ["flowers", "decoration", "elegant"],
+    "additional_info": {"brand": "Crate & Barrel", "price": 30}
+  },
+  {
+    "product_id": "item_15",
+    "product_name": "Area Rug",
+    "product_category": "Home Decor",
+    "product_keywords": ["comfort", "style", "warmth"],
+    "additional_info": {"brand": "Rugs USA", "price": 200}
+  },
+  {
+    "product_id": "item_16",
+    "product_name": "Shampoo",
+    "product_category": "FMCG",
+    "product_keywords": ["hair care", "cleansing", "nourishing"],
+    "additional_info": {"brand": "Head & Shoulders", "price": 5}
+  },
+  {
+    "product_id": "item_17",
+    "product_name": "Toothpaste",
+    "product_category": "FMCG",
+    "product_keywords": ["oral care", "whitening", "fresh breath"],
+    "additional_info": {"brand": "Colgate", "price": 3}
+  },
+  {
+    "product_id": "item_18",
+    "product_name": "Laundry Detergent",
+    "product_category": "FMCG",
+    "product_keywords": ["cleaning", "freshness", "stain removal"],
+    "additional_info": {"brand": "Tide", "price": 10}
+  },
+  {
+    "product_id": "item_19",
+    "product_name": "Dish Soap",
+    "product_category": "FMCG",
+    "product_keywords": ["cleaning", "grease removal", "lemon scent"],
+    "additional_info": {"brand": "Dawn", "price": 4}
+  },
+  {
+    "product_id": "item_20",
+    "product_name": "Hand Sanitizer",
+    "product_category": "FMCG",
+    "product_keywords": ["hygiene", "sanitizing", "portable"],
+    "additional_info": {"brand": "Purell", "price": 2}
+  },
+  {
+    "product_id": "item_21",
+    "product_name": "Vitamins",
+    "product_category": "Healthcare",
+    "product_keywords": ["health", "immunity", "supplements"],
+    "additional_info": {"brand": "Centrum", "price": 15}
+  },
+  {
+    "product_id": "item_22",
+    "product_name": "Pain Relief Cream",
+    "product_category": "Healthcare",
+    "product_keywords": ["pain relief", "muscle soreness", "arthritis"],
+    "additional_info": {"brand": "Voltaren", "price": 10}
+  },
+  {
+    "product_id": "item_23",
+    "product_name": "Thermometer",
+    "product_category": "Healthcare",
+    "product_keywords": ["temperature", "health", "digital"],
+    "additional_info": {"brand": "Braun", "price": 20}
+  },
+  {
+    "product_id": "item_24",
+    "product_name": "First Aid Kit",
+    "product_category": "Healthcare",
+    "product_keywords": ["emergency", "safety", "essential"],
+    "additional_info": {"brand": "Johnson & Johnson", "price": 15}
+  },
+  {
+    "product_id": "item_25",
+    "product_name": "Air Purifier",
+    "product_category": "Healthcare",
+    "product_keywords": ["allergies", "air quality", "health"],
+    "additional_info": {"brand": "Dyson", "price": 300}
+  }
+]

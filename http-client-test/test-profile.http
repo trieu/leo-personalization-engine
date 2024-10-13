@@ -1,0 +1,428 @@
+### save profiles
+
+POST http://localhost:8000/add-profiles/ HTTP/1.1
+content-type: application/json
+
+[
+  {
+    "profile_id": "crm_11",
+    "page_view_keywords": [
+      "car",
+      "bike",
+      "accessories"
+    ],
+    "purchase_keywords": [
+      "helmet",
+      "gloves"
+    ],
+    "interest_keywords": [
+      "travel",
+      "photography",
+      "outdoors"
+    ],
+    "additional_info": {
+      "age": 28,
+      "location": "Germany"
+    }
+  },
+  {
+    "profile_id": "crm_12",
+    "page_view_keywords": [
+      "motorbike",
+      "leather jacket",
+      "boots"
+    ],
+    "purchase_keywords": [
+      "riding gear",
+      "helmet"
+    ],
+    "interest_keywords": [
+      "gaming",
+      "tech",
+      "motorcycles"
+    ],
+    "additional_info": {
+      "age": 26,
+      "location": "USA"
+    }
+  },
+  {
+    "profile_id": "crm_13",
+    "page_view_keywords": [
+      "smartphone",
+      "headphones",
+      "bluetooth speaker"
+    ],
+    "purchase_keywords": [
+      "wireless earbuds",
+      "phone case"
+    ],
+    "interest_keywords": [
+      "music",
+      "film",
+      "gadgets"
+    ],
+    "additional_info": {
+      "age": 23,
+      "location": "UK"
+    }
+  },
+  {
+    "profile_id": "crm_14",
+    "page_view_keywords": [
+      "shoes",
+      "watch",
+      "sportswear"
+    ],
+    "purchase_keywords": [
+      "running shoes",
+      "fitness tracker"
+    ],
+    "interest_keywords": [
+      "fitness",
+      "sports",
+      "fashion"
+    ],
+    "additional_info": {
+      "age": 29,
+      "location": "Canada"
+    }
+  },
+  {
+    "profile_id": "crm_15",
+    "page_view_keywords": [
+      "laptop",
+      "smartphone",
+      "keyboard"
+    ],
+    "purchase_keywords": [
+      "monitor",
+      "mouse"
+    ],
+    "interest_keywords": [
+      "coding",
+      "tech",
+      "programming"
+    ],
+    "additional_info": {
+      "age": 33,
+      "location": "India"
+    }
+  },
+  {
+    "profile_id": "crm_16",
+    "page_view_keywords": [
+      "camera",
+      "laptop",
+      "microphone"
+    ],
+    "purchase_keywords": [
+      "tripod",
+      "lighting"
+    ],
+    "interest_keywords": [
+      "videography",
+      "tech",
+      "filmmaking"
+    ],
+    "additional_info": {
+      "age": 26,
+      "location": "Australia"
+    }
+  },
+  {
+    "profile_id": "crm_17",
+    "page_view_keywords": [
+      "books",
+      "backpack",
+      "travel guide"
+    ],
+    "purchase_keywords": [
+      "kindle",
+      "luggage"
+    ],
+    "interest_keywords": [
+      "reading",
+      "travel",
+      "adventure"
+    ],
+    "additional_info": {
+      "age": 30,
+      "location": "Spain"
+    }
+  },
+  {
+    "profile_id": "crm_18",
+    "page_view_keywords": [
+      "furniture",
+      "decor",
+      "lighting"
+    ],
+    "purchase_keywords": [
+      "rug",
+      "lamp"
+    ],
+    "interest_keywords": [
+      "interior design",
+      "DIY",
+      "home improvement"
+    ],
+    "additional_info": {
+      "age": 32,
+      "location": "Italy"
+    }
+  },
+  {
+    "profile_id": "crm_19",
+    "page_view_keywords": [
+      "smartphone",
+      "watch",
+      "earbuds"
+    ],
+    "purchase_keywords": [
+      "smartwatch",
+      "headphones"
+    ],
+    "interest_keywords": [
+      "fitness",
+      "music",
+      "technology"
+    ],
+    "additional_info": {
+      "age": 25,
+      "location": "Vietnam"
+    }
+  },
+  {
+    "profile_id": "crm_20",
+    "page_view_keywords": [
+      "camera",
+      "laptop",
+      "drone"
+    ],
+    "purchase_keywords": [
+      "lens",
+      "memory card"
+    ],
+    "interest_keywords": [
+      "adventure",
+      "photography",
+      "travel"
+    ],
+    "additional_info": {
+      "age": 27,
+      "location": "New Zealand"
+    }
+  },
+  {
+    "profile_id": "crm_21",
+    "page_view_keywords": [
+      "makeup",
+      "skincare",
+      "hair products"
+    ],
+    "purchase_keywords": [
+      "lipstick",
+      "foundation"
+    ],
+    "interest_keywords": [
+      "beauty",
+      "fashion",
+      "lifestyle"
+    ],
+    "additional_info": {
+      "age": 28,
+      "location": "France"
+    }
+  },
+  {
+    "profile_id": "crm_22",
+    "page_view_keywords": [
+      "video games",
+      "gaming console",
+      "controller"
+    ],
+    "purchase_keywords": [
+      "headset",
+      "games"
+    ],
+    "interest_keywords": [
+      "gaming",
+      "esports",
+      "technology"
+    ],
+    "additional_info": {
+      "age": 22,
+      "location": "South Korea"
+    }
+  },
+  {
+    "profile_id": "crm_23",
+    "page_view_keywords": [
+      "books",
+      "e-reader",
+      "audiobooks"
+    ],
+    "purchase_keywords": [
+      "kindle unlimited",
+      "audible subscription"
+    ],
+    "interest_keywords": [
+      "reading",
+      "literature",
+      "fantasy"
+    ],
+    "additional_info": {
+      "age": 35,
+      "location": "United Kingdom"
+    }
+  },
+  {
+    "profile_id": "crm_24",
+    "page_view_keywords": [
+      "gardening tools",
+      "plants",
+      "seeds"
+    ],
+    "purchase_keywords": [
+      "fertilizer",
+      "pots"
+    ],
+    "interest_keywords": [
+      "gardening",
+      "outdoors",
+      "nature"
+    ],
+    "additional_info": {
+      "age": 55,
+      "location": "Netherlands"
+    }
+  },
+  {
+    "profile_id": "crm_25",
+    "page_view_keywords": [
+      "art supplies",
+      "paint",
+      "brushes"
+    ],
+    "purchase_keywords": [
+      "canvas",
+      "easel"
+    ],
+    "interest_keywords": [
+      "art",
+      "painting",
+      "drawing"
+    ],
+    "additional_info": {
+      "age": 24,
+      "location": "Italy"
+    }
+  },
+  {
+    "profile_id": "crm_26",
+    "page_view_keywords": [
+      "cooking utensils",
+      "recipes",
+      "ingredients"
+    ],
+    "purchase_keywords": [
+      "pots and pans",
+      "kitchen appliances"
+    ],
+    "interest_keywords": [
+      "cooking",
+      "food",
+      "baking"
+    ],
+    "additional_info": {
+      "age": 31,
+      "location": "France"
+    }
+  },
+  {
+    "profile_id": "crm_27",
+    "page_view_keywords": [
+      "sports equipment",
+      "football",
+      "basketball"
+    ],
+    "purchase_keywords": [
+      "ball",
+      "shoes"
+    ],
+    "interest_keywords": [
+      "sports",
+      "fitness",
+      "competition"
+    ],
+    "additional_info": {
+      "age": 18,
+      "location": "Brazil"
+    }
+  },
+  {
+    "profile_id": "crm_28",
+    "page_view_keywords": [
+      "travel destinations",
+      "flights",
+      "hotels"
+    ],
+    "purchase_keywords": [
+      "plane tickets",
+      "accommodation"
+    ],
+    "interest_keywords": [
+      "travel",
+      "adventure",
+      "culture"
+    ],
+    "additional_info": {
+      "age": 29,
+      "location": "Germany"
+    }
+  },
+  {
+    "profile_id": "crm_29",
+    "page_view_keywords": [
+      "music albums",
+      "concerts",
+      "bands"
+    ],
+    "purchase_keywords": [
+      "tickets",
+      "merchandise"
+    ],
+    "interest_keywords": [
+      "music",
+      "concerts",
+      "entertainment"
+    ],
+    "additional_info": {
+      "age": 22,
+      "location": "United States"
+    }
+  },
+  {
+    "profile_id": "crm_30",
+    "page_view_keywords": [
+      "movies",
+      "TV shows",
+      "streaming services"
+    ],
+    "purchase_keywords": [
+      "subscriptions",
+      "movie tickets"
+    ],
+    "interest_keywords": [
+      "entertainment",
+      "movies",
+      "TV"
+    ],
+    "additional_info": {
+      "age": 26,
+      "location": "Canada"
+    }
+  }
+]
+

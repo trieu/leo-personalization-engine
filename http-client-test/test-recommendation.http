@@ -1,0 +1,37 @@
+
+### check profile for recommendation
+
+POST http://localhost:8000/check-profile-for-recommendation/
+content-type: application/json
+
+{
+        "profile_id": "crm_99",
+        "page_view_keywords": ["Camera","travel", "Drone"],
+        "purchase_keywords": ["lenovo", "nvidia"],
+        "interest_keywords": ["adventure", "reading"],
+        "additional_info": {"age": 38, "location": "Vietnam"}
+}
+
+### get recommendation for profile by ID 
+
+GET http://localhost:8000/recommend/crm_15
+
+### get recommendation for profile by ID with top_n, except_product_ids
+
+GET http://localhost:8000/recommend/crm_16?top_n=2&except_product_ids=item_1,item_6
+
+
+### check profile for recommendation with top_n, except_product_ids 
+
+POST http://localhost:8000/check-profile-for-recommendation/
+content-type: application/json
+
+{
+        "profile_id": "crm_99",
+        "page_view_keywords": ["Camera","travel", "Drone"],
+        "purchase_keywords": ["lenovo", "nvidia"],
+        "interest_keywords": ["adventure", "Travel"],
+        "additional_info": {"age": 38, "location": "Vietnam"},
+        "max_recommendation_size": 3,
+        "except_product_ids" : ["item_10","item_5"]
+}
