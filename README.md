@@ -44,6 +44,10 @@ This API provides personalized product recommendations using Qdrant for vector s
 
     API_HOST=0.0.0.0
     API_PORT=8000
+
+    REDIS_HOST=localhost
+    REDIS_PORT=6480
+
 ```
 
 ## Running the API
@@ -54,6 +58,9 @@ uvicorn main:api_personalization --reload
 This will start the API server. You can access the API documentation at `http://localhost:8000/docs`
 
 ## API Endpoints
+
+    All API Endpoints must be called with the header: Authorization = [your_api_key]
+    The [your_api_key] must be in Redis. E.g: 127.0.0.1:6480> set personalization_test true
 
 ### Profiles
 
@@ -98,13 +105,25 @@ This will start the API server. You can access the API documentation at `http://
 
 ```json
 {
-    "profile_id": "user123",
-    "page_view_keywords": ["smartphone", "electronics"],
-    "purchase_keywords": ["headphones", "bluetooth"],
-    "interest_keywords": ["music", "technology"],
-    "additional_info": {"age": 25, "location": "USA"},
-    "max_recommendation_size": 10, 
-    "except_product_ids": ["item_5", "item_10"] 
+    "profile_id": "crm_11",
+    "page_view_keywords": [
+        "car",
+        "bike",
+        "accessories"
+    ],
+    "purchase_keywords": [
+        "helmet",
+        "gloves"
+    ],
+    "interest_keywords": [
+        "travel",
+        "photography",
+        "outdoors"
+    ],
+    "additional_info": {
+        "age": 28,
+        "location": "Germany"
+    }
 }
 ```
 
@@ -113,10 +132,10 @@ This will start the API server. You can access the API documentation at `http://
 ```json
 {
     "product_id": "item_1",
-    "product_name": "Wireless Headphones",
+    "product_name": "Macbook Pro",
     "product_category": "Electronics",
-    "product_keywords": ["music", "bluetooth", "noise-cancelling"],
-    "additional_info": {"brand": "Sony", "price": 200}
+    "product_keywords": ["tech", "work", "portable"],
+    "additional_info": {"brand": "Apple", "price": 1200}
 }
 ```
 
@@ -128,19 +147,35 @@ This will start the API server. You can access the API documentation at `http://
 curl -X POST \
   http://localhost:8000/add-profile/ \
   -H 'Content-Type: application/json' \
+  -H 'Authorization: personalization_test' \
   -d '{
-    "profile_id": "user123",
-    "page_view_keywords": ["smartphone", "electronics"],
-    "purchase_keywords": ["headphones", "bluetooth"],
-    "interest_keywords": ["music", "technology"],
-    "additional_info": {"age": 25, "location": "USA"}
-}'
+    "profile_id": "crm_15",
+    "page_view_keywords": [
+      "car",
+      "bike",
+      "accessories"
+    ],
+    "purchase_keywords": [
+      "helmet",
+      "gloves"
+    ],
+    "interest_keywords": [
+      "travel",
+      "photography",
+      "outdoors"
+    ],
+    "additional_info": {
+      "age": 28,
+      "location": "Germany"
+    }
+  }'
 ```
 ### Getting Recommendations
 
 ```bash
 curl -X GET \
-  "http://localhost:8000/recommend/user123?top_n=5&except_product_ids=item_2,item_4" 
+  -H 'Authorization: personalization_test' \
+  "http://localhost:8000/recommend/crm_15?top_n=5&except_product_ids=item_1,item_6" 
 ```
 
 ## Future Improvements

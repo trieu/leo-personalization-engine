@@ -2,6 +2,7 @@
 
 POST http://localhost:8000/add-products/
 Content-Type: application/json
+Authorization: personalization_test
 
 [
   {

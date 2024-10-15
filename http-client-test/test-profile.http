@@ -2,6 +2,7 @@
 
 POST http://localhost:8000/add-profiles/ HTTP/1.1
 content-type: application/json
+Authorization: personalization_test
 
 [
   {

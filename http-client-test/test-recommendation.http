@@ -3,6 +3,7 @@
 
 POST http://localhost:8000/check-profile-for-recommendation/
 content-type: application/json
+Authorization: personalization_test
 
 {
         "profile_id": "crm_99",
@@ -15,16 +16,19 @@ content-type: application/json
 ### get recommendation for profile by ID 
 
 GET http://localhost:8000/recommend/crm_15
+Authorization: personalization_test
 
 ### get recommendation for profile by ID with top_n, except_product_ids
 
 GET http://localhost:8000/recommend/crm_16?top_n=2&except_product_ids=item_1,item_6
+Authorization: personalization_test
 
 
 ### check profile for recommendation with top_n, except_product_ids 
 
 POST http://localhost:8000/check-profile-for-recommendation/
 content-type: application/json
+Authorization: personalization_test
 
 {
         "profile_id": "crm_99",
