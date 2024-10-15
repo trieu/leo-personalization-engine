@@ -11,20 +11,40 @@ This API provides personalized product recommendations using Qdrant for vector s
 - Python 3.10+
 - FastAPI
 - Pydantic
-- Qdrant Database and Qdrant client library (install with `pip install qdrant-client`)
+- Qdrant Vector Database. Refer to the Qdrant documentation for instructions: https://qdrant.tech/documentation/quick-start/
+- Qdrant client library (install with `pip install qdrant-client`)
 
 ## Installation
 
 1. Clone the repository:
-   ```bash
+```bash
    git clone https://github.com/trieu/leo-personalization-engine
-   ```
-2. Install the dependencies:
-   ```bash
+```
+
+2. Create env
+```bash
+    python -m venv env
+    source env/bin/activate
+```
+
+3. Install the dependencies:
+```bash
    pip install -r requirements.txt
-   ```
-3. Start the Qdrant server: start_qdrant.sh. Refer to the Qdrant documentation for instructions: https://qdrant.tech/documentation/quick-start/
-4. Update the Qdrant connection details in your application code. 
+```
+
+4. Start the Qdrant server:
+```bash
+   ./start_qdrant.sh
+```
+
+5. Next, create a .env file by coping the file sample.env or create your own file with content:
+```
+    QDRANT_HOST=localhost
+    QDRANT_PORT=6333
+
+    API_HOST=0.0.0.0
+    API_PORT=8000
+```
 
 ## Running the API
 
@@ -100,7 +120,6 @@ This will start the API server. You can access the API documentation at `http://
 }
 ```
 
-
 ## Example Usage
 
 ### Adding a Profile
@@ -128,4 +147,4 @@ curl -X GET \
 
 - Implement more sophisticated vectorization techniques for user profiles and product data. 
 - Add support for more advanced filtering and ranking options for recommendations.
-- Integrate with a user interface for managing profiles and products. 
+- Integrate with a user interface for managing profiles and products.

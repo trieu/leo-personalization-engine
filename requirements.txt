@@ -7,24 +7,19 @@ pytest
 requests
 python-dotenv
 
-sqlalchemy>=2.0.27
-cityhash
 fastembed
-redis>=5.0.2
+redis>=5.1.1
 rq
 rq-dashboard
-pyarango>=2.1.1
 
 numpy>=1.26.4
 pandas>=2.2.2
+qdrant-client>=1.12.0
 
 Faker
 markdown
-
-google-generativeai>=0.7.2
+google-generativeai>=0.8.3
 
 transformers
 ctransformers[cuda]
 sentence-transformers
-
-qdrant-client>=1.12.0
