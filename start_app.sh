@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR_PATH="/build/leo-bot/"
+DIR_PATH="."
 
 # Change to the directory where your FastAPI app is located
 

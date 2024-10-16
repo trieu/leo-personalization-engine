@@ -7,9 +7,9 @@ Authorization: personalization_test
 
 {
         "profile_id": "crm_99",
-        "page_view_keywords": ["Camera","travel", "Drone"],
+        "page_view_keywords": ["Electronics","Macbook", "Drone"],
         "purchase_keywords": ["lenovo", "nvidia"],
-        "interest_keywords": ["adventure", "reading"],
+        "interest_keywords": ["travel", "reading"],
         "additional_info": {"age": 38, "location": "Vietnam"}
 }
 

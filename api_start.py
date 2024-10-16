@@ -1,4 +1,4 @@
-from personalization_router import api_personalization
+from main import api_service
 
 from dotenv import load_dotenv
 import os
@@ -10,7 +10,7 @@ load_dotenv(override=True)
 host = os.getenv('FASTAPI_HOST', '0.0.0.0')  # default is '0.0.0.0'
 port = int(os.getenv('FASTAPI_PORT', 8000))  # default is 8000
 
-# Run the FastAPI api_personalization
+# Run the FastAPI api_service
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(api_personalization, host=host, port=port)
+    uvicorn.run(api_service, host=host, port=port)

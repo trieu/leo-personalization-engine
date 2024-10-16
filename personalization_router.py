@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Request, Depends
+from personalization_models import ProfileRequest, ProductRequest
 from typing import List
-from pydantic import BaseModel, Field
 import redis
 
 from personalization import add_profile_to_qdrant, add_product_to_qdrant, recommend_products_for_profile
@@ -18,6 +18,9 @@ REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))  # default is 6379
 # Initialize Redis connection
 redis_db = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0)
 
+# FastAPI initialization
+api_personalization = FastAPI()
+
 # Middleware to check token in the request
 async def verify_token(request: Request):
     token = request.headers.get('Authorization')
@@ -30,32 +33,7 @@ async def verify_token(request: Request):
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
 
-# FastAPI initialization
-api_personalization = FastAPI()
 
-# default
-@api_personalization.get("/")
-async def index():
-    return {"message": "API of CDP Recommendation"}
-
-
-# Pydantic models for request data
-class ProfileRequest(BaseModel):
-    profile_id: str
-    page_view_keywords: List[str]
-    purchase_keywords: List[str]
-    interest_keywords: List[str]
-    additional_info: dict
-    max_recommendation_size: int = Field(8, description="Default recommendation is 8")
-    except_product_ids: List[str] = []
-
-
-class ProductRequest(BaseModel):
-    product_id: str
-    product_name: str
-    product_category: str
-    product_keywords: List[str]
-    additional_info: dict
 
 
 # Endpoint to add profile

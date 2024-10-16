@@ -47,6 +47,10 @@ def get_text_embedding(text):
     
     return numpy_embedding
 
+# get all collections in Qdrant
+def get_all_collection_names_in_qdrant():
+    existing_collections = qdrant_client.get_collections().collections
+    return existing_collections
 
 # Updated function to create collection in Qdrant
 def create_qdrant_collection_if_not_exists(collection_name: str, vector_size: int):
@@ -61,10 +65,6 @@ def create_qdrant_collection_if_not_exists(collection_name: str, vector_size: in
         print(f"Collection '{collection_name}' created successfully.")
     else:
         print(f"Collection '{collection_name}' already exists.")
-
-# Create collections if not exist
-create_qdrant_collection_if_not_exists(PROFILE_COLLECTION, PROFILE_VECTOR_SIZE)
-create_qdrant_collection_if_not_exists(PRODUCT_COLLECTION, PRODUCT_VECTOR_SIZE)
 
 
 # Build profile vector based on attributes
@@ -217,3 +217,8 @@ def recommend_products_for_profile(profile_id, top_n=8, except_product_ids=[]):
         print(f"An error occurred: {str(e)}")
         return []
 
+
+def init_db_personalization():    
+    ### Create collections if not exist ###
+    create_qdrant_collection_if_not_exists(PROFILE_COLLECTION, PROFILE_VECTOR_SIZE)
+    create_qdrant_collection_if_not_exists(PRODUCT_COLLECTION, PRODUCT_VECTOR_SIZE)
