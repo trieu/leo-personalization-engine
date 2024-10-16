@@ -16,8 +16,16 @@ load_dotenv(override=True)
 QDRANT_HOST = os.getenv('QDRANT_HOST', 'localhost')  # default is 'localhost'
 QDRANT_PORT = int(os.getenv('QDRANT_PORT', 6333))  # default is 6333
 
+# Fetch the host and port from environment variables
+QDRANT_CLOUD_HOST = os.getenv('QDRANT_CLOUD_HOST', '')  # default is empty
+QDRANT_CLOUD_API_KEY = os.getenv('QDRANT_CLOUD_API_KEY', '')  # default is empty
+
 # Initialize QdrantClient with the loaded values
-qdrant_client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+qdrant_client = False
+if QDRANT_CLOUD_HOST != "" and QDRANT_CLOUD_API_KEY != "":
+    qdrant_client = QdrantClient(host=QDRANT_CLOUD_HOST, api_key=QDRANT_CLOUD_API_KEY)
+else:
+    qdrant_client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
 
 # Create collections for profile and product in Qdrant
 PROFILE_COLLECTION = "cdp_profile"
@@ -219,6 +227,8 @@ def recommend_products_for_profile(profile_id, top_n=8, except_product_ids=[]):
 
 
 def init_db_personalization():    
+    if qdrant_client == False:
+        raise Exception("qdrant_client is NULL")
     ### Create collections if not exist ###
     create_qdrant_collection_if_not_exists(PROFILE_COLLECTION, PROFILE_VECTOR_SIZE)
     create_qdrant_collection_if_not_exists(PRODUCT_COLLECTION, PRODUCT_VECTOR_SIZE)

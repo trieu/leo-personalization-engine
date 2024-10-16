@@ -42,12 +42,15 @@ This API provides personalized product recommendations using Qdrant for vector s
     QDRANT_HOST=localhost
     QDRANT_PORT=6333
 
+    QDRANT_CLOUD_HOST=
+    QDRANT_CLOUD_API_KEY=
+
     API_HOST=0.0.0.0
     API_PORT=8000
 
-    REDIS_HOST=localhost
-    REDIS_PORT=6480
-
+    REDIS_HOST=
+    REDIS_PORT=0
+    DEFAULT_AUTHORIZATION_KEY=personalization_test
 ```
 
 ## Running the API

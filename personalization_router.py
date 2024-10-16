@@ -12,11 +12,14 @@ import os
 load_dotenv(override=True)
 
 # Fetch the host and port from environment variables
-REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')  # default is 'localhost'
-REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))  # default is 6379
+REDIS_HOST = os.getenv('REDIS_HOST', "")  # default is 'localhost'
+REDIS_PORT = int(os.getenv('REDIS_PORT', 0))  # default is 6379
+DEFAULT_AUTHORIZATION_KEY = os.getenv('DEFAULT_AUTHORIZATION_KEY', "")  # default is empty
 
 # Initialize Redis connection
-redis_db = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0)
+redis_db = False
+if REDIS_HOST != "" and REDIS_PORT > 0:
+    redis_db = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0)
 
 # FastAPI initialization
 api_personalization = FastAPI()
@@ -28,12 +31,13 @@ async def verify_token(request: Request):
         raise HTTPException(status_code=401, detail="Authorization token is missing")
     
     # Validate token with Redis
-    token_valid = redis_db.get(token)
+    if redis_db != False:
+        token_valid = redis_db.get(token)
+    else:
+        token_valid = DEFAULT_AUTHORIZATION_KEY == token
+        
     if not token_valid:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
-
-
-
 
 
 # Endpoint to add profile
