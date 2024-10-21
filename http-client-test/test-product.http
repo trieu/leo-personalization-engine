@@ -10,126 +10,144 @@ Authorization: personalization_test
     "product_name": "Macbook Pro",
     "product_category": "Electronics",
     "product_keywords": ["tech", "work", "portable"],
-    "additional_info": {"brand": "Apple", "price": 1200}
+    "additional_info": {"brand": "Apple", "price": 1200},
+    "journey_maps": ["coffee-shop"]
   },
   {
     "product_id": "item_2",
     "product_name": "Noise-Cancelling Headphones",
     "product_category": "Electronics",
     "product_keywords": ["music", "travel", "noise-cancelling"],
-    "additional_info": {"brand": "Sony", "price": 300}
+    "additional_info": {"brand": "Sony", "price": 300},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_3",
     "product_name": "Portable Bluetooth Speaker",
     "product_category": "Electronics",
     "product_keywords": ["music", "outdoor", "wireless"],
-    "additional_info": {"brand": "JBL", "price": 100}
+    "additional_info": {"brand": "JBL", "price": 100},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_4",
     "product_name": "Smartwatch",
     "product_category": "Electronics",
     "product_keywords": ["fitness", "health", "notifications"],
-    "additional_info": {"brand": "Samsung", "price": 250}
+    "additional_info": {"brand": "Samsung", "price": 250},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_5",
     "product_name": "Mirrorless Camera",
     "product_category": "Electronics",
     "product_keywords": ["photography", "travel", "high-quality"],
-    "additional_info": {"brand": "Canon", "price": 800}
+    "additional_info": {"brand": "Canon", "price": 800},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_6",
     "product_name": "Hiking Backpack",
     "product_category": "Travel",
     "product_keywords": ["outdoor", "adventure", "durable"],
-    "additional_info": {"brand": "Osprey", "price": 150}
+    "additional_info": {"brand": "Osprey", "price": 150},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_7",
     "product_name": "Lightweight Suitcase",
     "product_category": "Travel",
     "product_keywords": ["travel", "luggage", "convenient"],
-    "additional_info": {"brand": "Samsonite", "price": 200}
+    "additional_info": {"brand": "Samsonite", "price": 200},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_8",
     "product_name": "Travel Insurance",
     "product_category": "Travel",
     "product_keywords": ["safety", "protection", "peace of mind"],
-    "additional_info": {"brand": "World Nomads", "price": 50}
+    "additional_info": {"brand": "World Nomads", "price": 50},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_9",
     "product_name": "Pocket Translator",
     "product_category": "Travel",
     "product_keywords": ["language", "communication", "convenient"],
-    "additional_info": {"brand": "Pocketalk", "price": 200}
+    "additional_info": {"brand": "Pocketalk", "price": 200},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_10",
     "product_name": "Noise-Cancelling Earplugs",
     "product_category": "Travel",
     "product_keywords": ["sleep", "comfort", "travel"],
-    "additional_info": {"brand": "Bose", "price": 30}
+    "additional_info": {"brand": "Bose", "price": 30},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_11",
     "product_name": "Scented Candles",
     "product_category": "Home Decor",
     "product_keywords": ["relaxation", "fragrance", "ambiance"],
-    "additional_info": {"brand": "Yankee Candle", "price": 20}
+    "additional_info": {"brand": "Yankee Candle", "price": 20},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_12",
     "product_name": "Throw Blanket",
     "product_category": "Home Decor",
     "product_keywords": ["cozy", "comfort", "style"],
-    "additional_info": {"brand": "West Elm", "price": 50}
+    "additional_info": {"brand": "West Elm", "price": 50},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_13",
     "product_name": "Wall Art",
     "product_category": "Home Decor",
     "product_keywords": ["decoration", "art", "style"],
-    "additional_info": {"brand": "Etsy", "price": 100}
+    "additional_info": {"brand": "Etsy", "price": 100},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_14",
     "product_name": "Decorative Vases",
     "product_category": "Home Decor",
     "product_keywords": ["flowers", "decoration", "elegant"],
-    "additional_info": {"brand": "Crate & Barrel", "price": 30}
+    "additional_info": {"brand": "Crate & Barrel", "price": 30},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_15",
     "product_name": "Area Rug",
     "product_category": "Home Decor",
     "product_keywords": ["comfort", "style", "warmth"],
-    "additional_info": {"brand": "Rugs USA", "price": 200}
+    "additional_info": {"brand": "Rugs USA", "price": 200},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_16",
     "product_name": "Shampoo",
     "product_category": "FMCG",
     "product_keywords": ["hair care", "cleansing", "nourishing"],
-    "additional_info": {"brand": "Head & Shoulders", "price": 5}
+    "additional_info": {"brand": "Head & Shoulders", "price": 5},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_17",
     "product_name": "Toothpaste",
     "product_category": "FMCG",
     "product_keywords": ["oral care", "whitening", "fresh breath"],
-    "additional_info": {"brand": "Colgate", "price": 3}
+    "additional_info": {"brand": "Colgate", "price": 3},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_18",
     "product_name": "Laundry Detergent",
     "product_category": "FMCG",
     "product_keywords": ["cleaning", "freshness", "stain removal"],
-    "additional_info": {"brand": "Tide", "price": 10}
+    "additional_info": {"brand": "Tide", "price": 10},
+    "journey_maps": ["coffee-shop", "phu-quoc", "vung-tau", "phu-yen", "da-lat", "sapa"]
   },
   {
     "product_id": "item_19",
@@ -179,5 +197,94 @@ Authorization: personalization_test
     "product_category": "Healthcare",
     "product_keywords": ["allergies", "air quality", "health"],
     "additional_info": {"brand": "Dyson", "price": 300}
+  }
+]
+
+
+###  10 more products ### 
+POST http://localhost:8000/add-products/
+Content-Type: application/json
+Authorization: personalization_test
+
+[
+  {
+    "product_id": "prod_01",
+    "product_name": "Wireless Noise-Cancelling Earbuds",
+    "product_category": "Electronics",
+    "product_keywords": ["smartphone", "headphones", "bluetooth speaker", "wireless earbuds", "music", "gadgets"],
+    "additional_info": {"brand": "SoundWave", "price": 120},
+    "journey_maps": ["coffee-shop", "phu-quoc"]
+  },
+  {
+    "product_id": "prod_02",
+    "product_name": "Lightweight Hiking Backpack",
+    "product_category": "Outdoor & Sports",
+    "product_keywords": ["backpack", "travel guide", "luggage", "reading", "travel", "adventure"],
+    "additional_info": {"brand": "Trailblazer", "price": 80},
+    "journey_maps": ["da-lat", "sapa"]
+  },
+  {
+    "product_id": "prod_03",
+    "product_name": "Ergonomic Office Chair",
+    "product_category": "Home & Furniture",
+    "product_keywords": ["furniture", "decor", "lighting", "rug", "lamp", "interior design", "DIY", "home improvement"],
+    "additional_info": {"brand": "ComfySit", "price": 150},
+    "journey_maps": ["vung-tau", "phu-yen"]
+  },
+  {
+    "product_id": "prod_04",
+    "product_name": "Professional DSLR Camera",
+    "product_category": "Electronics",
+    "product_keywords": ["camera", "laptop", "drone", "lens", "memory card", "adventure", "photography", "travel"],
+    "additional_info": {"brand": "PhotoPro", "price": 1200},
+    "journey_maps": ["sapa", "coffee-shop"]
+  },
+  {
+    "product_id": "prod_05",
+    "product_name": "Long-lasting Matte Lipstick",
+    "product_category": "Beauty & Personal Care",
+    "product_keywords": ["makeup", "skincare", "hair products", "lipstick", "foundation", "beauty", "fashion", "lifestyle"],
+    "additional_info": {"brand": "Glamorous", "price": 25},
+    "journey_maps": ["phu-quoc", "da-lat"]
+  },
+  {
+    "product_id": "prod_06",
+    "product_name": "Immersive Gaming Headset",
+    "product_category": "Electronics",
+    "product_keywords": ["video games", "gaming console", "controller", "headset", "games", "gaming", "esports", "technology"],
+    "additional_info": {"brand": "GameOn", "price": 80},
+    "journey_maps": ["da-lat", "vung-tau"]
+  },
+  {
+    "product_id": "prod_07",
+    "product_name": "Waterproof Smartwatch with GPS",
+    "product_category": "Electronics",
+    "product_keywords": ["smartphone", "watch", "earbuds", "smartwatch", "headphones", "fitness", "music", "technology"],
+    "additional_info": {"brand": "FitTrack", "price": 180},
+    "journey_maps": ["vung-tau", "phu-yen"]
+  },
+  {
+    "product_id": "prod_08",
+    "product_name": "Kindle Paperwhite E-reader",
+    "product_category": "Electronics",
+    "product_keywords": ["books", "e-reader", "audiobooks", "kindle unlimited", "audible subscription", "reading", "literature", "fantasy"],
+    "additional_info": {"brand": "Kindle", "price": 130},
+    "journey_maps": ["phu-yen", "coffee-shop"]
+  },
+  {
+    "product_id": "prod_09",
+    "product_name": "Set of High-Quality Gardening Tools",
+    "product_category": "Home & Garden",
+    "product_keywords": ["gardening tools", "plants", "seeds", "fertilizer", "pots", "gardening", "outdoors", "nature"],
+    "additional_info": {"brand": "GreenThumb", "price": 60},
+    "journey_maps": ["coffee-shop", "sapa"]
+  },
+  {
+    "product_id": "prod_10",
+    "product_name": "Professional Art Set with Easel",
+    "product_category": "Arts & Crafts",
+    "product_keywords": ["art supplies", "paint", "brushes", "canvas", "easel", "art", "painting", "drawing"],
+    "additional_info": {"brand": "Artastic", "price": 100},
+    "journey_maps": ["sapa", "phu-quoc"]
   }
 ]

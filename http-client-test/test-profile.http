@@ -24,7 +24,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 28,
       "location": "Germany"
-    }
+    },
+    "journey_maps": [
+      "da-lat",
+      "sapa",
+      "coffee-shop"
+    ]
   },
   {
     "profile_id": "crm_12",
@@ -45,7 +50,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 26,
       "location": "USA"
-    }
+    },
+    "journey_maps": [
+      "vung-tau",
+      "phu-yen",
+      "phu-quoc"
+    ]
   },
   {
     "profile_id": "crm_13",
@@ -66,7 +76,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 23,
       "location": "UK"
-    }
+    },
+    "journey_maps": [
+      "coffee-shop",
+      "phu-quoc",
+      "da-lat"
+    ]
   },
   {
     "profile_id": "crm_14",
@@ -87,7 +102,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 29,
       "location": "Canada"
-    }
+    },
+    "journey_maps": [
+      "sapa",
+      "vung-tau",
+      "phu-yen"
+    ]
   },
   {
     "profile_id": "crm_15",
@@ -108,7 +128,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 33,
       "location": "India"
-    }
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "da-lat"
+    ]
   },
   {
     "profile_id": "crm_16",
@@ -129,7 +154,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 26,
       "location": "Australia"
-    }
+    },
+    "journey_maps": [
+      "da-lat",
+      "sapa",
+      "vung-tau"
+    ]
   },
   {
     "profile_id": "crm_17",
@@ -150,7 +180,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 30,
       "location": "Spain"
-    }
+    },
+    "journey_maps": [
+      "vung-tau",
+      "phu-yen",
+      "coffee-shop"
+    ]
   },
   {
     "profile_id": "crm_18",
@@ -171,7 +206,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 32,
       "location": "Italy"
-    }
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "sapa"
+    ]
   },
   {
     "profile_id": "crm_19",
@@ -192,7 +232,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 25,
       "location": "Vietnam"
-    }
+    },
+    "journey_maps": [
+      "da-lat",
+      "vung-tau",
+      "phu-yen"
+    ]
   },
   {
     "profile_id": "crm_20",
@@ -213,7 +258,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 27,
       "location": "New Zealand"
-    }
+    },
+    "journey_maps": [
+      "coffee-shop",
+      "phu-quoc",
+      "da-lat"
+    ]
   },
   {
     "profile_id": "crm_21",
@@ -234,7 +284,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 28,
       "location": "France"
-    }
+    },
+    "journey_maps": [
+      "sapa",
+      "vung-tau",
+      "phu-quoc"
+    ]
   },
   {
     "profile_id": "crm_22",
@@ -255,7 +310,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 22,
       "location": "South Korea"
-    }
+    },
+    "journey_maps": [
+      "phu-yen",
+      "coffee-shop",
+      "da-lat"
+    ]
   },
   {
     "profile_id": "crm_23",
@@ -276,7 +336,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 35,
       "location": "United Kingdom"
-    }
+    },
+    "journey_maps": [
+      "da-lat",
+      "sapa",
+      "vung-tau"
+    ]
   },
   {
     "profile_id": "crm_24",
@@ -297,7 +362,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 55,
       "location": "Netherlands"
-    }
+    },
+    "journey_maps": [
+      "vung-tau",
+      "phu-yen",
+      "phu-quoc"
+    ]
   },
   {
     "profile_id": "crm_25",
@@ -318,7 +388,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 24,
       "location": "Italy"
-    }
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "sapa"
+    ]
   },
   {
     "profile_id": "crm_26",
@@ -339,7 +414,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 31,
       "location": "France"
-    }
+    },
+    "journey_maps": [
+      "da-lat",
+      "sapa",
+      "vung-tau"
+    ]
   },
   {
     "profile_id": "crm_27",
@@ -360,7 +440,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 18,
       "location": "Brazil"
-    }
+    },
+    "journey_maps": [
+      "vung-tau",
+      "phu-quoc",
+      "phu-yen"
+    ]
   },
   {
     "profile_id": "crm_28",
@@ -381,7 +466,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 29,
       "location": "Germany"
-    }
+    },
+    "journey_maps": [
+      "coffee-shop",
+      "da-lat",
+      "sapa"
+    ]
   },
   {
     "profile_id": "crm_29",
@@ -402,7 +492,12 @@ Authorization: personalization_test
     "additional_info": {
       "age": 22,
       "location": "United States"
-    }
+    },
+    "journey_maps": [
+      "sapa",
+      "vung-tau",
+      "phu-yen"
+    ]
   },
   {
     "profile_id": "crm_30",
@@ -423,7 +518,279 @@ Authorization: personalization_test
     "additional_info": {
       "age": 26,
       "location": "Canada"
-    }
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "da-lat"
+    ]
   }
 ]
 
+###  10 more profiles to test ### 
+POST http://localhost:8000/add-profiles/ HTTP/1.1
+content-type: application/json
+Authorization: personalization_test
+
+[
+  {
+    "profile_id": "crm_31",
+    "page_view_keywords": [
+      "yoga mat",
+      "meditation cushion",
+      "essential oils"
+    ],
+    "purchase_keywords": [
+      "yoga pants",
+      "diffuser"
+    ],
+    "interest_keywords": [
+      "yoga",
+      "meditation",
+      "wellness"
+    ],
+    "additional_info": {
+      "age": 30,
+      "location": "Australia"
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "sapa"
+    ]
+  },
+  {
+    "profile_id": "crm_32",
+    "page_view_keywords": [
+      "power tools",
+      "hardware",
+      "lumber"
+    ],
+    "purchase_keywords": [
+      "drill",
+      "saw"
+    ],
+    "interest_keywords": [
+      "DIY",
+      "home improvement",
+      "woodworking"
+    ],
+    "additional_info": {
+      "age": 45,
+      "location": "United States"
+    },
+    "journey_maps": [
+      "da-lat",
+      "vung-tau",
+      "phu-yen"
+    ]
+  },
+  {
+    "profile_id": "crm_33",
+    "page_view_keywords": [
+      "fishing rod",
+      "bait",
+      "tackle box"
+    ],
+    "purchase_keywords": [
+      "fishing line",
+      "hooks"
+    ],
+    "interest_keywords": [
+      "fishing",
+      "outdoors",
+      "nature"
+    ],
+    "additional_info": {
+      "age": 50,
+      "location": "Canada"
+    },
+    "journey_maps": [
+      "vung-tau",
+      "phu-yen",
+      "coffee-shop"
+    ]
+  },
+  {
+    "profile_id": "crm_34",
+    "page_view_keywords": [
+      "board games",
+      "card games",
+      "puzzles"
+    ],
+    "purchase_keywords": [
+      "monopoly",
+      "scrabble"
+    ],
+    "interest_keywords": [
+      "games",
+      "family",
+      "entertainment"
+    ],
+    "additional_info": {
+      "age": 35,
+      "location": "United Kingdom"
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "da-lat",
+      "sapa"
+    ]
+  },
+  {
+    "profile_id": "crm_35",
+    "page_view_keywords": [
+      "pet food",
+      "toys",
+      "beds"
+    ],
+    "purchase_keywords": [
+      "dog food",
+      "cat litter"
+    ],
+    "interest_keywords": [
+      "pets",
+      "dogs",
+      "cats"
+    ],
+    "additional_info": {
+      "age": 27,
+      "location": "Germany"
+    },
+    "journey_maps": [
+      "da-lat",
+      "vung-tau",
+      "phu-quoc"
+    ]
+  },
+  {
+    "profile_id": "crm_36",
+    "page_view_keywords": [
+      "baby clothes",
+      "strollers",
+      "car seats"
+    ],
+    "purchase_keywords": [
+      "diapers",
+      "formula"
+    ],
+    "interest_keywords": [
+      "babies",
+      "parenting",
+      "family"
+    ],
+    "additional_info": {
+      "age": 32,
+      "location": "France"
+    },
+    "journey_maps": [
+      "vung-tau",
+      "coffee-shop",
+      "sapa"
+    ]
+  },
+  {
+    "profile_id": "crm_37",
+    "page_view_keywords": [
+      "musical instruments",
+      "guitar",
+      "piano"
+    ],
+    "purchase_keywords": [
+      "strings",
+      "sheet music"
+    ],
+    "interest_keywords": [
+      "music",
+      "playing",
+      "instruments"
+    ],
+    "additional_info": {
+      "age": 24,
+      "location": "Japan"
+    },
+    "journey_maps": [
+      "phu-yen",
+      "da-lat",
+      "vung-tau"
+    ]
+  },
+  {
+    "profile_id": "crm_38",
+    "page_view_keywords": [
+      "camping gear",
+      "tent",
+      "sleeping bag"
+    ],
+    "purchase_keywords": [
+      "backpack",
+      "headlamp"
+    ],
+    "interest_keywords": [
+      "camping",
+      "hiking",
+      "outdoors"
+    ],
+    "additional_info": {
+      "age": 29,
+      "location": "United States"
+    },
+    "journey_maps": [
+      "coffee-shop",
+      "phu-quoc",
+      "da-lat"
+    ]
+  },
+  {
+    "profile_id": "crm_39",
+    "page_view_keywords": [
+      "cycling jersey",
+      "bike shorts",
+      "helmet"
+    ],
+    "purchase_keywords": [
+      "water bottle",
+      "tire pump"
+    ],
+    "interest_keywords": [
+      "cycling",
+      "fitness",
+      "sports"
+    ],
+    "additional_info": {
+      "age": 40,
+      "location": "Netherlands"
+    },
+    "journey_maps": [
+      "sapa",
+      "vung-tau",
+      "phu-yen"
+    ]
+  },
+  {
+    "profile_id": "crm_40",
+    "page_view_keywords": [
+      "craft supplies",
+      "yarn",
+      "fabric"
+    ],
+    "purchase_keywords": [
+      "knitting needles",
+      "sewing machine"
+    ],
+    "interest_keywords": [
+      "knitting",
+      "sewing",
+      "DIY"
+    ],
+    "additional_info": {
+      "age": 52,
+      "location": "United Kingdom"
+    },
+    "journey_maps": [
+      "phu-quoc",
+      "coffee-shop",
+      "sapa"
+    ]
+  }
+]

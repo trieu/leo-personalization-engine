@@ -1,5 +1,20 @@
 
-### check profile for recommendation
+### TEST 1: get recommendation for profile by ID 
+
+GET http://localhost:8000/recommend/crm_11
+Authorization: personalization_test
+
+### TEST 2: get recommendation for profile by ID with top_n
+
+GET http://localhost:8000/recommend/crm_11?top_n=3
+Authorization: personalization_test
+
+### TEST 3: get recommendation for profile by ID with top_n, except_product_ids, in_journey_maps
+
+GET http://localhost:8000/recommend/crm_16?top_n=5&except_product_ids=item_1,item_6&in_journey_maps=da-lat,coffee-shop
+Authorization: personalization_test
+
+### TEST 4: check profile for recommendation
 
 POST http://localhost:8000/check-profile-for-recommendation/
 content-type: application/json
@@ -10,21 +25,11 @@ Authorization: personalization_test
         "page_view_keywords": ["Electronics","Macbook", "Drone"],
         "purchase_keywords": ["lenovo", "nvidia"],
         "interest_keywords": ["travel", "reading"],
-        "additional_info": {"age": 38, "location": "Vietnam"}
+        "additional_info": {"age": 38, "location": "Vietnam"},
+        "journey_maps": ["coffee-shop", "sapa"]
 }
 
-### get recommendation for profile by ID 
-
-GET http://localhost:8000/recommend/crm_15
-Authorization: personalization_test
-
-### get recommendation for profile by ID with top_n, except_product_ids
-
-GET http://localhost:8000/recommend/crm_16?top_n=2&except_product_ids=item_1,item_6
-Authorization: personalization_test
-
-
-### check profile for recommendation with top_n, except_product_ids 
+### TEST 5: check profile for recommendation with top_n, except_product_ids 
 
 POST http://localhost:8000/check-profile-for-recommendation/
 content-type: application/json
@@ -36,6 +41,7 @@ Authorization: personalization_test
         "purchase_keywords": ["lenovo", "nvidia"],
         "interest_keywords": ["adventure", "Travel"],
         "additional_info": {"age": 38, "location": "Vietnam"},
-        "max_recommendation_size": 3,
-        "except_product_ids" : ["item_10","item_5"]
+        "max_recommendation_size": 5,
+        "except_product_ids" : ["item_10","item_5"],
+        "journey_maps": ["phu-quoc"]
 }

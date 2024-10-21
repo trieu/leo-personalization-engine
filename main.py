@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+# Load the .env file and override any existing environment variables
+load_dotenv(override=True)
+
 from personalization import get_all_collection_names_in_qdrant, init_db_personalization
 init_db_personalization()
 

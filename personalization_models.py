@@ -10,6 +10,7 @@ class ProfileRequest(BaseModel):
     additional_info: dict
     max_recommendation_size: int = Field(8, description="Default recommendation is 8")
     except_product_ids: List[str] = []
+    journey_maps: List[str] = []
 
 
 class ProductRequest(BaseModel):
@@ -18,3 +19,4 @@ class ProductRequest(BaseModel):
     product_category: str
     product_keywords: List[str]
     additional_info: dict
+    journey_maps: List[str] = []

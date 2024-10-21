@@ -5,11 +5,7 @@ import redis
 
 from personalization import add_profile_to_qdrant, add_product_to_qdrant, recommend_products_for_profile
 
-from dotenv import load_dotenv
 import os
-
-# Load environment variables from the .env file
-load_dotenv(override=True)
 
 # Fetch the host and port from environment variables
 REDIS_HOST = os.getenv('REDIS_HOST', "")  # default is 'localhost'
@@ -49,7 +45,8 @@ async def add_profile(profile: ProfileRequest):
             profile.page_view_keywords,
             profile.purchase_keywords,
             profile.interest_keywords,
-            profile.additional_info
+            profile.additional_info,
+            profile.journey_maps
         )
         return {"status": "Profile added successfully"}
     except Exception as e:
@@ -65,11 +62,13 @@ async def add_profile(profile: ProfileRequest):
             profile.page_view_keywords,
             profile.purchase_keywords,
             profile.interest_keywords,
-            profile.additional_info
+            profile.additional_info,
+            profile.journey_maps
         )        
         top_n = profile.max_recommendation_size
         except_product_ids = profile.except_product_ids
-        rs = recommend_products_for_profile(profile_id, top_n, except_product_ids)
+        in_journey_maps = profile.journey_maps
+        rs = recommend_products_for_profile(profile_id, top_n, except_product_ids, in_journey_maps)
         if not rs:
             raise HTTPException(
                 status_code=404, detail="Profile not found or no recommendations available")
@@ -88,7 +87,8 @@ async def add_profiles(profiles: List[ProfileRequest]):
                 profile.page_view_keywords,
                 profile.purchase_keywords,
                 profile.interest_keywords,
-                profile.additional_info
+                profile.additional_info,
+                profile.journey_maps
             )
         return {"status": "All profiles added successfully"}
     except Exception as e:
@@ -104,7 +104,8 @@ async def add_product(product: ProductRequest):
             product.product_name,
             product.product_category,
             product.product_keywords,
-            product.additional_info
+            product.additional_info,
+            product.journey_maps
         )
         return {"status": "Product added successfully"}
     except Exception as e:
@@ -121,7 +122,8 @@ async def add_products(products: List[ProductRequest]):
                 product.product_name,
                 product.product_category,
                 product.product_keywords,
-                product.additional_info
+                product.additional_info,
+                product.journey_maps
             )
         return {"status": "All products added successfully"}
     except Exception as e:
@@ -130,12 +132,26 @@ async def add_products(products: List[ProductRequest]):
 
 # Endpoint to recommend products based on profile
 @api_personalization.get("/recommend/{profile_id}", dependencies=[Depends(verify_token)])
-async def recommend(profile_id: str, top_n: int = 8, except_product_ids: str = ""):
+async def recommend(profile_id: str, top_n: int = 8, except_product_ids: str = "", journey_maps: str = ""):
     try:
-        rs = recommend_products_for_profile(profile_id, top_n, except_product_ids.split(","))
+        rs = recommend_products_for_profile(profile_id, top_n, get_input_array(except_product_ids), get_input_array(journey_maps))
         if not rs:
             raise HTTPException(
                 status_code=404, detail="Profile not found or no recommendations available")
         return rs
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+def get_input_array(text, delimiter=","):
+  """Splits a string by a delimiter and removes empty strings from the result.
+
+  Args:
+    text: The string to split.
+    delimiter: The delimiter to split by (default is ",").
+
+  Returns:
+    A list of strings with empty strings removed.
+  """
+
+  return [item.strip() for item in text.split(delimiter) if item.strip()]
