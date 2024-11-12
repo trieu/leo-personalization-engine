@@ -82,6 +82,8 @@ This will start the API server. You can access the API documentation at `http://
 
 ### Products
 
+The product management API
+
 - **`POST /add-product/`**
     - Adds a single product to the database.
     - Request body: `ProductRequest` object (see below)
@@ -91,16 +93,33 @@ This will start the API server. You can access the API documentation at `http://
     - Request body: List of `ProductRequest` objects
     - Response: `{"status": "All products added successfully"}`
 
+### Contents
+
+The content management API
+
+- **`POST /add-content-item/`**
+    - Adds a single content item to the database.
+    - Request body: `ContentRequest` object (see below)
+    - Response: `{"status": "Content item added successfully"}`
+- **`POST /add-content-items/`**
+    - Adds multiple content items to the database in bulk.
+    - Request body: List of `ContentRequest` objects
+    - Response: `{"status": "All content items added successfully"}`
+
 ### Recommendations
+
+The recommendation API to personalize product, contents and both.
 
 - **`GET /recommend/{profile_id}`**
     - Gets personalized product recommendations for a given profile ID.
     - Path parameters:
         - `profile_id`: The ID of the user profile.
+        - `item_type`: The item type to get recommendation: product, content, or both.
     - Query parameters:
         - `top_n` (optional): The maximum number of recommendations to return (default: 8).
-        - `except_product_ids` (optional): Comma-separated string of product IDs to exclude from recommendations (e.g., "item_1,item_3").
-    - Response: List of recommended product IDs (see example below)
+        - `except_product_ids` (optional): Comma-separated string of product IDs to exclude from 
+        - `except_content_ids` (optional): Comma-separated string of content IDs to exclude from recommendations (e.g., "item_1,item_3").
+    - Response: List of recommended product / content IDs (see example below)
 
 ## Data Models
 
@@ -139,6 +158,17 @@ This will start the API server. You can access the API documentation at `http://
     "product_category": "Electronics",
     "product_keywords": ["tech", "work", "portable"],
     "additional_info": {"brand": "Apple", "price": 1200}
+}
+```
+
+**ContentRequest:**
+
+```json
+{
+    "content_id": "item_1",
+    "title": "Macbook Pro",
+    "content_category": "Electronics",
+    "content_keywords": ["tech", "work", "portable"]
 }
 ```
 

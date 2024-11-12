@@ -19,7 +19,11 @@ python-arango
 
 Faker
 markdown
+gdown
+pypdl
+pymupdf
 google-generativeai>=0.8.3
+google-cloud-translate>=3.15.3
 
 transformers
 ctransformers[cuda]

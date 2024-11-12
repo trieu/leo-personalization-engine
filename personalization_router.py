@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Request, Depends
-from personalization_models import ProfileRequest, ProductRequest
+from personalization_models import ProfileRequest, ProductRequest, ContentRequest
 from typing import List
 import redis
 
-from personalization import add_profile_to_qdrant, add_product_to_qdrant, recommend_products_for_profile
+from personalization import add_profile_to_qdrant, add_product_to_qdrant, add_content_to_qdrant, recommend_products_for_profile
 
 import os
 
@@ -57,14 +57,7 @@ async def add_profile(profile: ProfileRequest):
 @api_personalization.post("/check-profile-for-recommendation/", dependencies=[Depends(verify_token)])
 async def add_profile(profile: ProfileRequest):
     try:
-        profile_id = add_profile_to_qdrant(
-            profile.profile_id,
-            profile.page_view_keywords,
-            profile.purchase_keywords,
-            profile.interest_keywords,
-            profile.additional_info,
-            profile.journey_maps
-        )        
+        profile_id = add_profile_to_qdrant(profile)       
         top_n = profile.max_recommendation_size
         except_product_ids = profile.except_product_ids
         in_journey_maps = profile.journey_maps
@@ -81,16 +74,12 @@ async def add_profile(profile: ProfileRequest):
 @api_personalization.post("/add-profiles/", dependencies=[Depends(verify_token)])
 async def add_profiles(profiles: List[ProfileRequest]):
     try:
+        c = 0
         for profile in profiles:
-            add_profile_to_qdrant(
-                profile.profile_id,
-                profile.page_view_keywords,
-                profile.purchase_keywords,
-                profile.interest_keywords,
-                profile.additional_info,
-                profile.journey_maps
-            )
-        return {"status": "All profiles added successfully"}
+            profile_id = add_profile_to_qdrant(profile)
+            if profile_id:
+                c = c + 1
+        return {"status": c + " profiles added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -99,36 +88,39 @@ async def add_profiles(profiles: List[ProfileRequest]):
 @api_personalization.post("/add-product/", dependencies=[Depends(verify_token)])
 async def add_product(product: ProductRequest):
     try:
-        add_product_to_qdrant(
-            product.product_id,
-            product.product_name,
-            product.product_category,
-            product.product_keywords,
-            product.additional_info,
-            product.journey_maps
-        )
+        add_product_to_qdrant(product)
         return {"status": "Product added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
 
 # Endpoint to add multiple products
 @api_personalization.post("/add-products/", dependencies=[Depends(verify_token)])
 async def add_products(products: List[ProductRequest]):
     try:
         for product in products:
-            add_product_to_qdrant(
-                product.product_id,
-                product.product_name,
-                product.product_category,
-                product.product_keywords,
-                product.additional_info,
-                product.journey_maps
-            )
+            add_product_to_qdrant(product)
         return {"status": "All products added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# Endpoint to add content
+@api_personalization.post("/add-content/", dependencies=[Depends(verify_token)])
+async def add_content(content: ContentRequest):
+    try:
+        add_content_to_qdrant(content)
+        return {"status": "Content added successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+# Endpoint to add multiple contents
+@api_personalization.post("/add-contents/", dependencies=[Depends(verify_token)])
+async def add_contents(contents: List[ContentRequest]):
+    try:
+        for content in contents:
+            add_content_to_qdrant(content)
+        return {"status": "All contents added successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # Endpoint to recommend products based on profile
 @api_personalization.get("/recommend/{profile_id}", dependencies=[Depends(verify_token)])

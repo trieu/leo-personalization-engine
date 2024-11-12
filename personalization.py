@@ -4,6 +4,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.http.models import PointStruct, MatchExcept, Filter, MatchAny
 from qdrant_client.http.models import VectorParams, Distance, FieldCondition
 from sentence_transformers import SentenceTransformer
+from personalization_models import ContentRequest, ProfileRequest, ProductRequest
 import hashlib
 import os
 
@@ -26,20 +27,22 @@ else:
     qdrant_client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
     print('USING LOCAL QDRANT DB ' + QDRANT_HOST)
 
-# Create collections for profile and product in Qdrant
+# Data collections in Qdrant
 PROFILE_COLLECTION = "cdp_profile"
 PRODUCT_COLLECTION = "cdp_product"
+CONTENT_COLLECTION = "cdp_content"
 
+# vector model
 MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2'
-
 VECTOR_MODEL = SentenceTransformer(MODEL_NAME)
 VECTOR_DIM_SIZE = VECTOR_MODEL.get_sentence_embedding_dimension()
+
+# vector size
 PROFILE_VECTOR_SIZE = VECTOR_DIM_SIZE
 PRODUCT_VECTOR_SIZE = VECTOR_DIM_SIZE * 3
+CONTENT_VECTOR_SIZE = VECTOR_DIM_SIZE
 
 # Function to get the text embeddings
-
-
 def get_text_embedding(text):
     if not text or not isinstance(text, str):
         print(f"Error: Invalid text input for embedding: {text}")
@@ -58,15 +61,11 @@ def get_text_embedding(text):
     return numpy_embedding
 
 # get all collections in Qdrant
-
-
 def get_all_collection_names_in_qdrant():
     existing_collections = qdrant_client.get_collections().collections
     return existing_collections
 
 # Updated function to create collection in Qdrant
-
-
 def create_qdrant_collection_if_not_exists(collection_name: str, vector_size: int):
     # Check if collection already exists
     existing_collections = qdrant_client.get_collections().collections
@@ -114,6 +113,30 @@ def build_profile_vector(page_view_keywords, purchase_keywords, interest_keyword
     return profile_vector
 
 
+
+# Build content vector based on attributes
+def build_content_vector(content_title, content_category, content_keywords):
+    # Ensure none of the input lists are empty to avoid issues
+    if not content_title or not content_category or not content_keywords:
+        print("Error: One or more keyword lists are empty.")
+        return None
+
+    # Get embeddings for title, category and keywords
+    title_embedding = np.array([get_text_embedding(content_title)])
+    category_embedding = np.array([get_text_embedding(content_category)])
+    keyword_embeddings = np.array([get_text_embedding(k)
+                                for k in content_keywords])
+
+    # Aggregate vectors by averaging or weighted sum
+    title_vector = np.mean(title_embedding, axis=0)
+    category_vector = np.mean(category_embedding, axis=0)
+    keyword_vector = np.mean(keyword_embeddings, axis=0)
+
+    # Final profile vector by combining (weights can be adjusted)
+    content_vector = 0.3 * title_vector + 0.4 * category_vector + 0.3 * keyword_vector
+        
+    return content_vector
+
 # Build product vector based on attributes
 def build_product_vector(product_name, product_category, product_keywords, journey_maps=[]):
     # Can use advanced models like BERT for better embeddings
@@ -144,16 +167,12 @@ def build_product_vector(product_name, product_category, product_keywords, journ
     return product_vector
 
 # Convert string to point_id using hashlib for large dataset
-
-
 def string_to_point_id(input_string):
     # Use SHA-256 hash and convert it to an integer with 16 digits
     # the resulting integer to a range between 0 and 99,999,999,999,999,999 (16 digits).
     return int(hashlib.sha256(input_string.encode('utf-8')).hexdigest(), 16) % (10 ** 16)
 
 # Helper function to add vectors to Qdrant collection
-
-
 def add_vector_to_qdrant(collection_name: str, object_id, vector, payload):
     point_id = string_to_point_id(str(object_id))
     point = PointStruct(
@@ -167,11 +186,10 @@ def add_vector_to_qdrant(collection_name: str, object_id, vector, payload):
     )
 
 # Function to add profile to Qdrant
-
-
-def add_profile_to_qdrant(profile_id, page_view_keywords, purchase_keywords, interest_keywords, additional_info, journey_maps=[]):
+def add_profile_to_qdrant(p: ProfileRequest):
+    profile_id = p.profile_id
     profile_vector = build_profile_vector(
-        page_view_keywords, purchase_keywords, interest_keywords, journey_maps)
+        p.page_view_keywords, p.purchase_keywords, p.interest_keywords, p.journey_maps)
 
     if profile_vector is None:
         print(
@@ -179,36 +197,54 @@ def add_profile_to_qdrant(profile_id, page_view_keywords, purchase_keywords, int
         return
 
     # Save profile vector to Qdrant
-    payload = {"profile_id": profile_id, "additional_info": additional_info}
-    payload['page_view_keywords'] = page_view_keywords
-    payload['purchase_keywords'] = purchase_keywords
-    payload['interest_keywords'] = interest_keywords
-    payload['journey_maps'] = journey_maps
-    add_vector_to_qdrant(PROFILE_COLLECTION, profile_id,
-                         profile_vector, payload)
+    payload = {"profile_id": profile_id, "additional_info": p.additional_info}
+    payload['page_view_keywords'] = p.page_view_keywords
+    payload['purchase_keywords'] = p.purchase_keywords
+    payload['interest_keywords'] = p.interest_keywords
+    payload['journey_maps'] = p.journey_maps
+    add_vector_to_qdrant(PROFILE_COLLECTION, profile_id, profile_vector, payload)
     print(f"Profile {profile_id} added to Qdrant")
     return profile_id
 
 
 # Function to add product to Qdrant
-def add_product_to_qdrant(product_id, product_name, product_category, product_keywords, additional_info, journey_maps=[]):
-    product_vector = build_product_vector(
-        product_name, product_category, product_keywords, journey_maps)
-
+def add_product_to_qdrant(p: ProductRequest):
+    product_id = p.product_id
+    # Generate product vector
+    product_vector = build_product_vector(p.product_name, p.product_category, p.product_keywords, p.journey_maps)
     if product_vector is None:
         print(
-            f"Error: Could not generate a valid vector for product {product_id}.")
+            f"Error: Could not generate a valid vector for product {product_name} with ID {product_id}.")
         return
 
     # Save product vector to Qdrant
-    payload = {"product_id": product_id, "name": product_name,
-               "category": product_category, "additional_info": additional_info,
-               "journey_maps": journey_maps}
-    add_vector_to_qdrant(PRODUCT_COLLECTION, product_id,
-                         product_vector, payload)
+    payload = {"product_id": product_id, "name": p.product_name,  
+               "keywords": p.product_keywords, "url": p.url,
+               "category": p.product_category, "additional_info": p.additional_info,
+               "journey_maps": p.journey_maps}
+    add_vector_to_qdrant(PRODUCT_COLLECTION, product_id, product_vector, payload)
     print(f"Product {product_id} added to Qdrant")
     return product_id
 
+# Function to add content to Qdrant
+def add_content_to_qdrant(c: ContentRequest):
+    content_id = c.content_id
+    # Generate content vector
+    content_vector = build_content_vector(c.title, c.content_category, c.content_keywords)
+    if content_vector is None:
+        print(
+            f"Error: Could not generate a valid vector for content title {c.title} with ID {content_id}.")
+        return
+
+    # Save product vector to Qdrant
+    payload = {"content_id": content_id, "title": c.title, "url": c.url, 
+               "description": c.description, "content": c.content,
+               "content_type": c.content_type, "keywords": c.content_keywords,
+               "category": c.content_category, "additional_info": c.additional_info,
+               "journey_maps": c.journey_maps}
+    add_vector_to_qdrant(CONTENT_COLLECTION, content_id, content_vector, payload)
+    print(f"Content {content_id} added to Qdrant")
+    return content_id
 
 # Recommend products based on profile vector
 def recommend_products_for_profile(profile_id, top_n=8, except_product_ids=[], in_journey_maps=[]):
@@ -289,3 +325,5 @@ def init_db_personalization():
         PROFILE_COLLECTION, PROFILE_VECTOR_SIZE)
     create_qdrant_collection_if_not_exists(
         PRODUCT_COLLECTION, PRODUCT_VECTOR_SIZE)
+    create_qdrant_collection_if_not_exists(
+        CONTENT_COLLECTION, CONTENT_VECTOR_SIZE)
