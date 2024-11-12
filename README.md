@@ -97,11 +97,11 @@ The product management API
 
 The content management API
 
-- **`POST /add-content-item/`**
+- **`POST /add-content/`**
     - Adds a single content item to the database.
     - Request body: `ContentRequest` object (see below)
     - Response: `{"status": "Content item added successfully"}`
-- **`POST /add-content-items/`**
+- **`POST /add-contents/`**
     - Adds multiple content items to the database in bulk.
     - Request body: List of `ContentRequest` objects
     - Response: `{"status": "All content items added successfully"}`
