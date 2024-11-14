@@ -1,24 +1,66 @@
-# LEO Personalization Engine API
+# ReSynap
 
-This API provides personalized product recommendations using Qdrant for vector similarity search. It allows you to:
+**ReSynap: Knowledge Graph AI Engine for MindMap Generation and Automation**
 
-- Add user profiles with their interests, purchase history, and other attributes.
-- Add product data with categories, keywords, and additional information.
-- Get real-time product recommendations for a specific user profile.
+Welcome to **ReSynap**—an advanced Knowledge Graph AI Engine designed to generate dynamic mind maps from text, transform text chats into visual knowledge graphs, and automate a range of tasks that integrate with customer data platforms (CDPs) and more.
 
-## Requirements
+## Features
+
+1.  **Dynamic Mind Map Generation**: Easily convert text into comprehensive mind maps that visually organize information and relationships.
+  
+2.  **Text-to-Knowledge Graphs**: Transform unstructured text chats into interactive knowledge graphs, uncovering insights and making connections intuitive.
+
+3.  **Customer Profile Classification**: Automatically classify customer profiles within CDPs, allowing for personalized segmentation and enhanced targeting.
+
+4.  **Data Reports and Insights**: Generate detailed data reports with ease, helping teams stay informed with up-to-date insights.
+
+5.  **Customer Segmentation**: Segment customer data effectively based on behavior, demographics, or any custom metric that fits your business needs.
+
+6.  **Real-Time Product Recommendations**: Get tailored product recommendations for specific user profiles, enabling targeted marketing and enhancing user experience.
+
+7.  **Automated Tasks**:
+    1. Send personalized emails at scale.
+    2. Trigger Zalo notifications to keep customers engaged.
+    3. Automate various customer-related workflows with seamless integration.
+
+## Use Cases
+
+- **Marketing Automation**: Automate segmentation and customer communications.
+- **Customer Data Analysis**: Deepen your insights into customer behavior and preferences.
+- **Product Recommendations**: Serve real-time, relevant recommendations to improve engagement and conversion.
+- **Knowledge Management**: Use knowledge graphs for easy data retrieval and management.
+- **Workflow Automation**: Set up triggers for automating tasks across multiple platforms.
+
+## Getting Started
+
+1. **Installation**: [TODO]
+2. **Usage**: [TODO]
+3. **API Integration**: [TODO]
+
+## Contributions
+
+Contributions to ReSynap are welcome! Please follow the [contribution guidelines](link to contribution guidelines) and submit your pull requests.
+
+---
+
+With ReSynap, transform data and text into actionable, visual insights and automate your workflows seamlessly!
+
+## System requirements
 
 - Python 3.10+
 - FastAPI
 - Pydantic
 - Qdrant Vector Database. Refer to the Qdrant documentation for instructions: https://qdrant.tech/documentation/quick-start/
 - Qdrant client library (install with `pip install qdrant-client`)
+- ArangoDB for graph database
+- Redis or Apache Kafka for data processing on queue
+- Large language models (LLMs) likes Google Gemini or OpenAI   
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/trieu/leo-personalization-engine
+   git clone https://github.com/trieu/resynap
 ```
 
 2. Create env
