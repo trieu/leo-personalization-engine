@@ -93,6 +93,7 @@ async def add_product(product: ProductRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 # Endpoint to add multiple products
 @api_personalization.post("/add-products/", dependencies=[Depends(verify_token)])
 async def add_products(products: List[ProductRequest]):
@@ -103,6 +104,7 @@ async def add_products(products: List[ProductRequest]):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 # Endpoint to add content
 @api_personalization.post("/add-content/", dependencies=[Depends(verify_token)])
 async def add_content(content: ContentRequest):
@@ -111,6 +113,7 @@ async def add_content(content: ContentRequest):
         return {"status": "Content added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
     
 # Endpoint to add multiple contents
 @api_personalization.post("/add-contents/", dependencies=[Depends(verify_token)])
@@ -121,6 +124,7 @@ async def add_contents(contents: List[ContentRequest]):
         return {"status": "All contents added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 
 # Endpoint to recommend products based on profile
 @api_personalization.get("/recommend/{profile_id}", dependencies=[Depends(verify_token)])
