@@ -2,9 +2,9 @@
 
 **ReSynap: Knowledge Graph AI Engine for MindMap Generation and Automation**
 
-Welcome to **ReSynap**—an advanced Knowledge Graph AI Engine designed to generate dynamic mind maps from text, transform text chats into visual knowledge graphs, and automate a range of tasks that integrate with customer data platforms (CDPs) and more.
+Welcome to **ReSynap**—an advanced Knowledge-RAG agent designed to generate dynamic mind maps from text, transform text chats into visual knowledge graphs, and automate a range of tasks that integrate with customer data platforms (CDPs) and more.
 
-![Alt text](flow.jpg "a title")
+![Alt text](flow.png "RESynap Flow")
 
 ## Features
 
