@@ -1,0 +1,57 @@
+{
+    "type": "flowchart",
+    "nodes": {
+        "BEGIN": {
+            "id": "BEGIN",
+            "type": "data_node",
+            "label": "Targeted Segment: <br> Shopping Cart Abandoners <img class='targetedSegmentIcon' src='https://cdn-icons-png.flaticon.com/128/4577/4577216.png'>",
+            "actions": [
+                "context.load_profile_720_view()"
+            ]
+        },
+        "C_isRightTimeToSend_1": {
+            "id": "C_isRightTimeToSend_1",
+            "type": "condition_node",
+            "label": "<img class=\"questionIcon\" src=\"https://cdn-icons-png.flaticon.com/128/189/189665.png\" /> Is birthday ? <br> <div class='nodeInfo'>  </div>",
+            "condition": "context.is_birthday()"
+        },
+        "A_send_email": {
+            "id": "A_send_email",
+            "type": "action_node",
+            "label": "Send email  <img class=\"actionIcon\" src=\"https://cdn-icons-png.flaticon.com/128/3062/3062634.png\" />",
+            "actions": [
+                "context.send_email(\"template_id\")"
+            ]
+        },
+        "END": {
+            "id": "END",
+            "type": "end_node",
+            "label": "<img src=\"https://cdn-icons-png.flaticon.com/64/5277/5277603.png\" />",
+            "actions": [
+                "context.end()"
+            ]
+        }
+    },
+    "rules": [
+        {
+            "start": "BEGIN",
+            "conditionResult": null,
+            "end": "C_isRightTimeToSend_1"
+        },
+        {
+            "start": "C_isRightTimeToSend_1",
+            "conditionResult": "true",
+            "end": "A_send_email"
+        },
+        {
+            "start": "C_isRightTimeToSend_1",
+            "conditionResult": "false",
+            "end": "END"
+        },
+        {
+            "start": "A_send_email",
+            "conditionResult": null,
+            "end": "END"
+        }
+    ]
+}
