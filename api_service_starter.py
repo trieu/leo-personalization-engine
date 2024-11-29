@@ -1,4 +1,4 @@
-from main import api_service
+from api_service import api_service
 
 from dotenv import load_dotenv
 import os

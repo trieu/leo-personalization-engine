@@ -11,4 +11,5 @@ source $SOURCE_PATH
 sleep 1
 
 # Start the FastAPI app using uvicorn
-uvicorn main:api_personalization --reload --env-file .env --host 0.0.0.0 --port 8000 
+APP_ID="api_service:api_personalization"
+uvicorn $APP_ID --reload --env-file .env --host 0.0.0.0 --port 8000 
