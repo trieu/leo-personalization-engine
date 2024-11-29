@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Data Input</title>
+    <script>
+        const HOSTNAME = '{{ HOSTNAME }}';
+        const training_bot = '{{ mode }}' === 'training_bot';
+        const BASE_URL_TRAINING = location.protocol + '//' + HOSTNAME + '/add_data';    
+        const BASE_URL_ASKING = location.protocol + '//' + HOSTNAME + '/ask'; 
+    </script>
+</head>
+<body>
+    <h1>Training Data Input Form</h1>
+    <form action="/add_data" method="post">
+        <label for="input">Input:</label><br>
+        <textarea id="input" name="input" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="output">Output:</label><br>
+        <textarea id="output" name="output" rows="2" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
