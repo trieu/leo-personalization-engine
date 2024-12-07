@@ -9,7 +9,7 @@ GOOGLE_GENAI_API_KEY = os.getenv("GOOGLE_GENAI_API_KEY")
 genai.configure(api_key=GOOGLE_GENAI_API_KEY)
 gemini_text_model = genai.GenerativeModel(model_name=GEMINI_MODEL)
 
-book_title = 'Big Data and Customer Data Platform In Real Estate'
+book_title = 'Big Data and AI for Jewelry Brands'
 
 question_for_toc = "Write a table of contents for the book '" + book_title + "'."
 question_for_toc = question_for_toc + " Each chapter must begine with '##'"
