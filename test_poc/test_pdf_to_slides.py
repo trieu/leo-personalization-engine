@@ -11,6 +11,11 @@ load_dotenv()
 
 GEMINI_MODEL = 'models/gemini-1.5-flash-latest'
 GOOGLE_GENAI_API_KEY = os.getenv("GOOGLE_GENAI_API_KEY")
+
+if GOOGLE_GENAI_API_KEY is None or len(GOOGLE_GENAI_API_KEY) == 0:
+    print('GOOGLE_GENAI_API_KEY is empty')
+    exit
+
 genai.configure(api_key=GOOGLE_GENAI_API_KEY)
 
 
@@ -37,10 +42,11 @@ def text_to_slides(extracted_text: str):
         slides_in_markdown (str): slides in markdown code
     """
     gemini_model = genai.GenerativeModel(model_name=GEMINI_MODEL)
-    model_config = genai.GenerationConfig(temperature=0.8)
+    model_config = genai.GenerationConfig(temperature=0.5)
     
-    context = "You are book reader than can summary book into slides in markdown."
-    context = context + " Each slide must begins with '##'. Write summary slides for this content: \n "
+    context = "You are a marketing professor. You want to write key notes in markdown for teaching."
+    context = context + " Each section of notes must begins with '##'. "
+    context = context + " Write notes with full core ideas in bullet point, pratical examples, explanations and Python code examples from this content: \n "
     prompt = context + extracted_text
 
     response = gemini_model.generate_content(prompt, generation_config=model_config)
@@ -94,9 +100,9 @@ def write_text_to_file(text: str, filename="summary-slides.md"):
 
 # ---------------------------
 # Replace with your PDF file path
-pdf_path = "/home/thomas/Documents/Digital Marketing Foundations and Strategy, Fifth Edition ( etc.) (Z-Library).pdf"
-start_page = 389
-end_page = 416
+pdf_path = "/home/thomas/Documents/AI/Machine Learning and Generative AI for Marketing - ZLIB.pdf"
+start_page = 280 
+end_page = 310
 
 # extract text form PDF file
 extracted_text = extract_text_from_pdf(pdf_path, start_page, end_page)
@@ -105,7 +111,7 @@ extracted_text = extract_text_from_pdf(pdf_path, start_page, end_page)
 slides_in_md = text_to_slides(extracted_text)
 
 # write to file or save into database
-write_text_to_file(slides_in_md)
+write_text_to_file(slides_in_md, filename="chapter8.md")
 
 print("\n -------------------------- ")
 print(slides_in_md)
